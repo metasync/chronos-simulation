@@ -1,5 +1,15 @@
 include Makefile.env
 
+build.simulator:
+	@${CONTAINER_CLI} build . \
+		-t ${SIMULATOR_IMAGE} \
+		--build-arg CHRONOS_IMAGE_TAG=${CHRONOS_IMAGE_TAG} \
+		--build-arg PROJECT=$(project)
+
+run.simulator:
+	@${CONTAINER_CLI} run --rm -it \
+		${SIMULATOR_IMAGE} /bin/sh
+
 up:
 	@${CONTAINER_CLI} compose up -d
 up.dev:
