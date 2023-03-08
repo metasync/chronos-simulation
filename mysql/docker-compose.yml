@@ -1,0 +1,39 @@
+version: "3.6"
+
+services:
+  chronos:
+    image: quay.io/chimanlei/chronos:0.1.5
+    volumes:
+      - ./projects:/home/app
+    env_file:
+      - env_files/databases.env
+      - env_files/archivers.env
+      - env_files/purgers.env
+      - env_files/simulation.env
+      - env_files/monitor.env
+    depends_on:
+      - opsdb
+      - hmsdb
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
+  opsdb:
+    image: mysql:8.0
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ops
+    volumes:
+      - chronos_sim_opsdb:/var/lib/mysql
+  hmsdb:
+    image: mysql:8.0
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hms
+    volumes:
+      - chronos_sim_hmsdb:/var/lib/mysql
+    depends_on:
+      - opsdb
+
+volumes:
+  chronos_sim_opsdb:
+  chronos_sim_hmsdb:

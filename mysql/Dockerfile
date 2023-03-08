@@ -1,0 +1,6 @@
+ARG CHRONOS_IMAGE_TAG=0.1.4
+FROM quay.io/chimanlei/chronos:${CHRONOS_IMAGE_TAG}
+
+ARG PROJECT
+
+COPY projects/${PROJECT} .

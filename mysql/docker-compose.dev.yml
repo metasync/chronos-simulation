@@ -1,0 +1,10 @@
+version: "3.6"
+
+services:
+  chronos:
+    # For development only
+    image: quay.io/chimanlei/ruby:3.2.1-alpine3.17
+    volumes:
+      - ./projects:/home/app
+      - ../../citrine:/gems/citrine
+      - ../../chronos:/gems/chronos

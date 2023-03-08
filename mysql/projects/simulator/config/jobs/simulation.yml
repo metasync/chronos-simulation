@@ -1,0 +1,25 @@
+simulate:
+  general:
+    worker: simulate_interactor
+    # auto_start: false
+    # start_after: 5s
+    # wait: 5s
+    batches: <%= ENV["SIMULATE_BATCHES"] %>
+    batch_size: <%= ENV["SIMULATE_BATCH_SIZE"] %>
+  jobs:
+    - id: 01CJ1RP28FHV55XW4NGBYHX8MG
+      # name: simulate
+      # auto_start: true
+      # start_after: 5s
+      # wait: 5s
+      # batches: 4
+      # batch_size: 100
+      from: ops.player_sessions
+    - id: 01CJ8TPX2GYTRJA5MR40WQNGEG
+      # name: simulate
+      # auto_start: false
+      start_after: 5s
+      # wait: 5s
+      # batches: 4
+      # batch_size: 100
+      from: ops.player_game_sessions

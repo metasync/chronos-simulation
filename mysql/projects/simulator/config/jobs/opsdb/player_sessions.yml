@@ -1,0 +1,4 @@
+---
+include:
+  - player_sessions/archive.yml
+  - player_sessions/purge.yml

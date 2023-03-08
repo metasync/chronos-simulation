@@ -1,0 +1,18 @@
+monitor:
+  general:
+    worker: monitor_interactor
+    # auto_start: false
+    # start_after: 5s
+    every: <%= ENV["DEFAULT_MONITOR_INTERVAL"] %>
+    abnormal_latency: <%= ENV["DEFAULT_MONITOR_ABNORMAL_LATENCY"] %>
+  jobs:
+    - id: 01CK7K1AHQ78DW235EV1S8KDRV
+      trace_type: archive
+      trace_from: "hms"
+      # every: "5m"
+      # abnormal_latency: "10m"
+    - id: 01CK8CK545JDX3X1JTMHXAVKW4
+      trace_type: purge
+      trace_from: "ops"
+      # every: "5m"
+      # abnormal_latency: "10m"
