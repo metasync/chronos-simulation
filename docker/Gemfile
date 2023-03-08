@@ -5,7 +5,7 @@ git_source(:metasync) do |repo_name|
 end
 
 gem "citrine", metasync: "citrine", tag: "0.1.5"
-gem "chronos", metasync: "chronos", tag: "0.1.4"
+gem "chronos", metasync: "chronos", tag: "0.1.5"
 
 gem "mysql2", "~> 0.5"
 gem "tiny_tds", "~> 2.1"

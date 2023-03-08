@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/metasync/chronos.git
-  revision: c26beca3db6188987125749ce8c588db6298756e
-  tag: 0.1.4
+  revision: 31dd072ddc0bac17b4773f453ce53c322c200754
+  tag: 0.1.5
   specs:
-    chronos (0.1.4)
+    chronos (0.1.5)
       citrine (>= 0.1.0)
       ulid (>= 1.3.0)
 
