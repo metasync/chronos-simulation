@@ -74,6 +74,29 @@ Then, you can check the logs to ensure databases are up and running:
 make logs
 ```
 
+While simulation with MySQL creates the databases automatically at first time start up, simulation with MS SQL doesn't. You need to manually create the databases like the following:
+
+```
+make shell.opsdb
+./configure-db.sh
+```
+
+Run the same commands to hmsdb to set it up.
+
+To log into MySQL database, run the following:
+
+```
+make shell.opsdb
+./mysql
+```
+
+To log into MS SQL databse, run the following:
+
+```
+make shell.opsdb
+./mssql
+```
+
 After the databases are ready, you can get into Chronos container:
 
 ```
