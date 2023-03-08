@@ -1,0 +1,31 @@
+---
+jobs:
+  archive:
+    general:
+      worker: archive_interactor
+      # auto_start: false
+      # start_after: 5s
+      # wait: 5s
+      batches: <%= ENV["DEFAULT_ARCHIVE_BATCHES"] %>
+      batch_size: <%= ENV["DEFAULT_ARCHIVE_BATCH_SIZE"] %>
+      # primary_key: id
+      # primary_key_uuid: true
+      trace_drift: <%= ENV["DEFAULT_ARCHIVE_TRACE_DRIFT"] %>
+  purge:
+    general:
+      worker: purge_interactor
+      # auto_start: false
+      # start_after: 5s
+      # wait: 5s
+      batches: <%= ENV["DEFAULT_PURGE_BATCHES"] %>
+      batch_size: <%= ENV["DEFAULT_PURGE_BATCH_SIZE"] %>
+      # primary_key: id
+      # primary_key_uuid: true
+      retention_period: <%= ENV["DEFAULT_PURGE_RETENTION_PERIOD"] %>
+  include:
+    - jobs/opsdb/player_sessions.yml
+    - jobs/simulation.yml
+    - jobs/monitor.yml
+
+  
+  

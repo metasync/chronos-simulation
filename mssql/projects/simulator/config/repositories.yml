@@ -1,0 +1,34 @@
+---
+repositories:
+  general:
+    pool_size: <%= ENV["DEFAULT_DB_CONNECTION_POOL_SIZE"] %>
+    # validation_interval: 15 # sec
+    # reconnect_interval: 1 # sec
+    enable_sql_log: <%= ENV["ENABLE_SQL_LOG"].to_s.downcase == "true" %>
+  ops_repository:
+    database: ops
+    database_url: <%= ENV["OPS_DB_URL"] %>
+    # database_url: tinytds://sa:mssql.ops0@opsdb/ops
+    # database_url: mssql://sa:s@m$$ql1ops@opsdb/ops
+    # validation_interval: 15 # sec
+    # reconnect_interval: 1 # sec
+    # pool_size: 4
+    # enable_sql_log: true
+  hms_repository:
+    database: hms
+    database_url: <%= ENV["HMS_DB_URL"] %>
+    # database_url: tinytds://sa:mssql.hms0@hmsdb/hms
+    # database_url: mssql://sa:s@m$$ql1hms@hmsdb/hms
+    # validation_interval: 15 # sec
+    # reconnect_interval: 1 # sec
+    # pool_size: 4
+    # enable_sql_log: true   
+  # chronos_repository:
+  #   database: chronos
+  #   database_url: <%= ENV["CHRONOS_DB_URL"] %>
+  #   # database_url: tinytds://sa:mssql.hms0@hmsdb/hms
+  #   # database_url: mssql://sa:s@m$$ql1hms@hmsdb/hms
+  #   # validation_interval: 15 # sec
+  #   # reconnect_interval: 1 # sec
+  #   # pool_size: 4
+  #   # enable_sql_log: true   

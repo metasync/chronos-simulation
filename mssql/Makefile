@@ -1,0 +1,49 @@
+include Makefile.env
+
+up:
+	@${CONTAINER_CLI} compose up -d
+up.dev:
+	@${CONTAINER_CLI} compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+down:
+	@${CONTAINER_CLI} compose down
+ps:
+	@${CONTAINER_CLI} ps -a
+logs:
+	@${CONTAINER_CLI} compose logs -f
+
+up.chronos:
+	@${CONTAINER_CLI} compose up chronos -d
+shell.chronos:
+	@${CONTAINER_CLI} compose exec chronos /bin/sh
+restart.chronos:
+	@${CONTAINER_CLI} compose restart chronos
+logs.chronos:
+	@${CONTAINER_CLI} compose logs chronos -f
+
+shell.opsdb:
+	@${CONTAINER_CLI} compose exec opsdb /bin/bash
+logs.opsdb:
+	@${CONTAINER_CLI} compose logs opsdb -f
+
+shell.hmsdb:
+	@${CONTAINER_CLI} compose exec hmsdb /bin/bash
+logs.hmsdb:
+	@${CONTAINER_CLI} compose logs hmsdb -f
+
+shell.chronosdb:
+	@${CONTAINER_CLI} compose exec chronosdb /bin/bash
+logs.chronosdb:
+	@${CONTAINER_CLI} compose logs chronosdb -f
+
+reset:
+	@${CONTAINER_CLI} volume rm \
+		mssql_chronos_sim_opsdb \
+		mssql_chronos_sim_hmsdb \
+		mssql_chronos_sim_chronosdb
+
+.PHONY: up up.dev down ps logs \
+		up.chronos shell.chronos restart.chronos logs.chronos \
+		shell.opsdb logs.opsdb \
+		shell.hmsdb logs.hmsdb \
+		shell.chronosdb logs.chronosdb \
+		reset

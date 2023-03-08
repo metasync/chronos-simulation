@@ -1,0 +1,47 @@
+archive:
+  jobs:
+    - id: 01CJ1WT49FKK2PAWY1SH7A3Q8P
+      # name: archive
+      # auto_start: true
+      # start_after: 5s
+      # wait: 5s
+      # batches: 4
+      # batch_size: 200
+      # trace_cycle: 30s
+      # trace_drift: 60s
+      trace_attr: updated_at
+      from: ops.player_sessions
+      to: hms
+      # to: hms.player_session_info
+      # primary_key: id
+      # primary_key_uuid: false
+      # select_attrs: [ col1 col2 col3 ]
+      # reject_attrs: [ col4 ]
+      # rename_attrs: { col1: col_1 }
+      # filter: |
+      #   # dataset.where{ created_at > Time.now  }
+      #   dataset.where(data: ["test1", "test2"])
+      # transform: |
+      #   unless row[:data].nil?
+      #     data = YAML.load(row[:data])
+      #     machine_token = data[:machine_token].split("|")
+      #     row[:machine_id] = machine_token[5].to_i
+      #   end
+    - id: 01CJ9HAHY0H5XJW7MSPC0PAS2X
+      # name: archive
+      # auto_start: false
+      # start_after: 5s
+      # wait: 5s
+      # batches: 4
+      # batch_size: 200
+      # trace_cycle: 30s
+      # trace_drift: 60s
+      trace_attr: updated_at
+      from: ops.player_game_sessions
+      to: hms
+      # primary_key: id
+      # primary_key_uuid: false
+      # select_attrs: [ col1 col2 col3 ]
+      # reject_attrs: [ col4 ]
+      # rename_attrs: { player_session_id: player_session_info_id }
+    

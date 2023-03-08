@@ -1,0 +1,45 @@
+version: "3.6"
+
+services:
+  chronos:
+    image: quay.io/chimanlei/chronos:0.1.3
+    volumes:
+      - ./projects:/home/app
+    env_file:
+      - env_files/databases.env
+      - env_files/archivers.env
+      - env_files/purgers.env
+      - env_files/simulation.env
+      - env_files/monitor.env
+    depends_on:
+      - opsdb
+      - hmsdb
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
+  opsdb:
+    image: mcr.microsoft.com/mssql/server:2019-CU19-ubuntu-20.04
+    environment: 
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: mssql.ops0
+      MSSQL_DATABASE: ops
+    working_dir: /home/app
+    volumes:
+      - chronos_sim_opsdb:/var/opt/mssql
+      - ./scripts:/home/app
+  hmsdb:
+    image: mcr.microsoft.com/mssql/server:2019-CU19-ubuntu-20.04
+    environment: 
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: mssql.hms0
+      MSSQL_DATABASE: hms
+    working_dir: /home/app
+    volumes:
+      - chronos_sim_hmsdb:/var/opt/mssql
+      - ./scripts:/home/app
+    depends_on:
+      - opsdb
+
+volumes:
+  chronos_sim_opsdb:
+  chronos_sim_hmsdb:

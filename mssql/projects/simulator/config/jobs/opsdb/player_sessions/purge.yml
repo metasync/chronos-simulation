@@ -1,0 +1,29 @@
+purge:
+  jobs:
+    - id: 01CJ41Y635F2P4NRHXHX2TMNZV
+      # name: purge
+      # auto_start: true
+      # start_after: 5s
+      # wait: 5s
+      # batches: 4
+      # batch_size: 200
+      # trace_cycle: 30s
+      from: ops.player_sessions
+      # primary_key: id
+      # primary_key_uuid: false
+      # purge_attr: updated_at
+      dependents:
+        player_game_sessions:
+      foreign_key: player_session_id
+    - id: 01CJK3JBCX8VKA6SSETFJ2QWZ4
+      # name: purge
+      # auto_start: true
+      # start_after: 5s
+      # wait: 5s
+      # batches: 4
+      # batch_size: 200
+      # trace_cycle: 30s
+      from: ops.player_game_sessions
+      # primary_key: id
+      # primary_key_uuid: false
+      # purge_attr: updated_at
