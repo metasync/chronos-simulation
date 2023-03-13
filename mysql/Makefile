@@ -40,20 +40,13 @@ shell.hmsdb:
 logs.hmsdb:
 	@${CONTAINER_CLI} compose logs hmsdb -f
 
-shell.chronosdb:
-	@${CONTAINER_CLI} compose exec chronosdb /bin/bash
-logs.chronosdb:
-	@${CONTAINER_CLI} compose logs chronosdb -f
-
 reset:
 	@${CONTAINER_CLI} volume rm \
 		mssql_chronos_sim_opsdb \
-		mssql_chronos_sim_hmsdb \
-		mssql_chronos_sim_chronosdb
+		mssql_chronos_sim_hmsdb
 
 .PHONY: up up.dev down ps logs \
 		up.chronos shell.chronos restart.chronos logs.chronos \
 		shell.opsdb logs.opsdb \
 		shell.hmsdb logs.hmsdb \
-		shell.chronosdb logs.chronosdb \
 		reset
