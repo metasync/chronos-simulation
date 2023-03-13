@@ -23,6 +23,7 @@ services:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: mssql.ops0
       MSSQL_DATABASE: ops
+      MSSQL_SCHEMA: chronos
     working_dir: /home/app
     volumes:
       - chronos_sim_opsdb:/var/opt/mssql
@@ -33,6 +34,7 @@ services:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: mssql.hms0
       MSSQL_DATABASE: hms
+      MSSQL_SCHEMA: chronos
     working_dir: /home/app
     volumes:
       - chronos_sim_hmsdb:/var/opt/mssql
