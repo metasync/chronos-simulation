@@ -13,3 +13,10 @@
 
   * Updated Chronos version to 0.1.5
   * Added simulation for MySQL
+
+## [0.2.1] - 2023-03-13
+
+  * Updated Citrine version to 0.1.6
+  * Updated Chronos version to 0.1.6
+  * Demonstrated using Chronos schema in MSSQL
+  * Minor code clean up
