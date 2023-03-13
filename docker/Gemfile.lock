@@ -1,18 +1,18 @@
 GIT
   remote: https://github.com/metasync/chronos.git
-  revision: 31dd072ddc0bac17b4773f453ce53c322c200754
-  tag: 0.1.5
+  revision: f472e70b78134dd83b16e1a27aa8de3c048e2dd0
+  tag: 0.1.6
   specs:
-    chronos (0.1.5)
+    chronos (0.1.6)
       citrine (>= 0.1.0)
       ulid (>= 1.3.0)
 
 GIT
   remote: https://github.com/metasync/citrine.git
-  revision: 1e305ac73b2dd0cb82abf2e0f289bfa1158d354b
-  tag: 0.1.5
+  revision: 2df2bd2429850caaee411ad963f0e6b48b20cd7d
+  tag: 0.1.6
   specs:
-    citrine (0.1.5)
+    citrine (0.1.6)
       celluloid (~> 0.17.4)
       http (~> 5.1.1)
       rack (>= 2.0.5)
